@@ -13,9 +13,11 @@ class PicksController < ApplicationController
       player.picks.count < 1
     end
     @pick = Pick.create(pick_params)
-   
+
     redirect_to players_path
   end
+
+
 
   def show
   end

@@ -1,11 +1,7 @@
 <h5>Player Name: <%=@player.name%></h5>
 <h5>Player Rating: <%=@player.rating%></h5>
 <h5>Player Position: <%=@player.position%></h5>
-
-<%= form_for @pick do |f| %>
-    <%=f.collection_select(:user_id, @users, :id, :username)%>
-    <%=f.hidden_field(:player_id)%>
-  <%= f.submit %>
-<% end %>
-
+<%@player.users.map do |users|%>
+<h5>Player Coach: <%=users.username%></h5>
+<%end%>
 
