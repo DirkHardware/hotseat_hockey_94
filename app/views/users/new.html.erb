@@ -1,0 +1,10 @@
+
+<%= form_for @user do |f| %>
+<%= f.label :username%>
+<%= f.text_field :username%>
+<%= f.label :password%>
+<%= f.password_field :password%>
+<%= f.collection_select(:team_id, @teams, :id, :name, prompt: "Select Team")%>
+<%= f.collection_select(:season_id, @seasons, :id, :number, prompt: "Select Season")%>
+<%= f.submit "Create" %>
+<% end %>

@@ -1,0 +1,16 @@
+<%= "#{@user.username}'s team"%>
+
+<table>                         
+    <tr>                          
+      <th>Name</th>
+      <th>Rating</th>
+      <th>Position</th>
+    </tr>
+<%@user.players.each do |player|%>     
+    <tr>
+      <td><%= player.name %></td>  
+      <td><%= player.rating %></td> 
+      <td><%= player.position %></td>  
+    </tr>
+  <% end %>                        
+  </table>         
