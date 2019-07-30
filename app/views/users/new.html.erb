@@ -1,4 +1,15 @@
 
+<%if @lastseason.users.length < 4%>
+<h2><%= "Four Users must sign up to start the draft."%></h2>
+<%elsif @lastseason.users.length >= 4 %>
+<h2><%= "This season is full."%></h2>
+<%end %>
+
+<%if flash[:message]%>
+    <%= flash[:message]%>
+<%end%>
+
+
 <%= form_for @user do |f| %>
 <%= f.label :username%>
 <%= f.text_field :username%>

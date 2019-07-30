@@ -1,6 +1,11 @@
-
-<h2><%="#{@seasons.draft} is on the clock."%></h2>
-
+<%if @season.picks.length == 48%>
+<%= "The draft has concluded.  Click a team name to view a roster or login to your username to view your team."%>
+<%else%>
+<h2><%="#{@season.draft.username} is on the clock."%></h2>
+<%end%>
+<h4><%="The moderator will record your picks.  You must select 6 F, 4 D, and 2 G." %></h4>
+<br/>
+<br/>
 <table>                         
   <tr>                          
     <th>Team Name</th>
@@ -8,9 +13,11 @@
     <th>Defensemen Count</th>
     <th>Goalie Count</th>
   </tr>
-<%@users.each do |user|%>     
+
+
+<%@season.users.each do |user|%>     
   <tr>
-    <td><%= user.username %></td>  
+    <td><%= link_to user.username, user_path(user.id) %></td>  
     <td><%= user.forwards%></td> 
     <td><%= user.defensemen%></td>  
     <td><%= user.goalies%></td>
