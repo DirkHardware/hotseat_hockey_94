@@ -13,10 +13,8 @@ class PicksController < ApplicationController
       player.picks.count < 1
     end
     @pick = Pick.create(pick_params)
-    redirect_to players_path
+    redirect_to users_path
   end
-
-
 
   def show
   end
@@ -29,7 +27,6 @@ class PicksController < ApplicationController
   def pick_params
     params.require(:pick).permit(:user_id, :player_id)
   end
-
 
 end
 

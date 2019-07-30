@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <div class="nav-bar">
+      <%if current_user%>
+      <%= "#{current_user.username} is logged in."%>
+      <%= link_to "logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete%>
+      <%else%>
+      <%= link_to "Login Page", login_path%>
+      <%end%>
+    </div>
     <%= yield %>
   </body>
 </html>

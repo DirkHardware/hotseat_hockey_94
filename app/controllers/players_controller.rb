@@ -6,12 +6,10 @@ class PlayersController < ApplicationController
     @players = Player.all.select do |player|
       player.picks.count < 1
     end
-    if @season.users.length < 4 
-      redirect_to "/users/new"
-    end
+    # if @season.users.length < 4 
+    #   redirect_to "/users/new"
+    # end
   end
-
-
 
   def show
     @player = Player.find(params[:id])

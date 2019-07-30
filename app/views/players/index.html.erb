@@ -14,7 +14,6 @@
     <th>Goalie Count</th>
   </tr>
 
-
 <%@season.users.each do |user|%>     
   <tr>
     <td><%= link_to user.username, user_path(user.id) %></td>  
@@ -25,24 +24,17 @@
 <% end %>                        
 </table>         
 
-
 <table>                         
     <tr>                          
       <th>Name</th>
       <th>Rating</th>
       <th>Position</th>
-      <th>Add Player</th>
     </tr>
 <%@players.each do |player|%>     
     <tr>
       <td><%= player.name %></td>  
       <td><%= player.rating %></td> 
       <td><%= player.position %></td>  
-      <%= form_tag('/picks') do %>
-      <%= hidden_field(:pick, :player_id, value: player.id)%>
-      <td><%=collection_select(:pick, :user_id, @users, :id, :username)%></td>
-      <td><%= submit_tag 'Save' %></td>
-      <% end %>
     </tr>
   <% end %>                        
   </table>         

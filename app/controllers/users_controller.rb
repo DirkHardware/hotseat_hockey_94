@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  before_action :require_login
+  skip_before_action :require_login, only: [:new, :create]
+
   def new
     @users = User.all
     @teams = Team.all
@@ -31,11 +34,24 @@ class UsersController < ApplicationController
   end
 
   def index
+    if current_user.username != "admin" 
+      redirect_to user_path(current_user)
+    end
+    @users = User.all
+    @picks = Pick.all
+    @season = Season.last 
+    @players = Player.all.select do |player|
+      player.picks.count < 1
+    end
   end
 
   private 
   def user_params
     params.require(:user).permit(:username, :password, :team_id, :season_id)
+  end
+
+  def require_login 
+    redirect_to "/login" unless session.include? :user_id 
   end
 
 end

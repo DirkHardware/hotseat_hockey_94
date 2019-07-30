@@ -1,0 +1,12 @@
+<%= "Log in"%><br/>
+<%if flash[:message]%>
+    <%=flash[:message]%>
+<%end%>
+
+<%= form_for :session, url: "/login" do |f| %>
+<%= f.label :username%><br/>
+<%= f.text_field :username%><br/>
+<%= f.label :password%><br/>
+<%= f.password_field :password%><br/>
+<%= f.submit "Create" %>
+<% end %>
