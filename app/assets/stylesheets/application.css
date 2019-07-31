@@ -15,6 +15,58 @@
  */
 
  .nav-bar { 
-     background-color: lightblue;
-     color: red;
+    border: groove;
+    background-image: linear-gradient(lightblue, rgb(32, 32, 175));
+    color: red;
  }
+
+ :any-link {
+     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ }
+
+tr {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* .pick_table {
+    border-style: solid;
+    border-width: 10px 1px;
+} */
+
+table, th, td {
+    border: 1px solid black;
+  }
+
+h4 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+form {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.position_table {
+    display: inline-block;
+    vertical-align: top;
+    margin: auto;
+}
+
+.user_table {
+    display: inline-block;
+    vertical-align: top;
+    margin: auto;
+}
+
+.logo_roster {
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-between;
+}

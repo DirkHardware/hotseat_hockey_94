@@ -9,7 +9,7 @@
     <%= flash[:message]%>
 <%end%>
 
-
+<div class="form">
 <%= form_for @user do |f| %>
 <%= f.label :username%>
 <%= f.text_field :username%>
@@ -19,3 +19,4 @@
 <%= f.collection_select(:season_id, @seasons, :id, :number, prompt: "Select Season")%>
 <%= f.submit "Create" %>
 <% end %>
+</div>

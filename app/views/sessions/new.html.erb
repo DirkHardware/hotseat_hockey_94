@@ -11,13 +11,14 @@
 <%if flash[:message]%>
     <%=flash[:message]%>
 <%end%>
-
+<div class="form">
 <%= form_for :session, url: "/login" do |f| %>
     <%= f.label :username%><br/>
     <%= f.text_field :username%><br/>
     <%= f.label :password%><br/>
     <%= f.password_field :password%><br/>
     <%= f.submit "Create" %><br/>
+</div>
     <p>Project Idea: The website www.nhl94.com exists for fans of the Sega Genesis and SNES game NHL94.  The game was revolutionary for being the first hockey game that included the one timer, a shot that almost always goes in depending on which player you have on the shooting end.  Over the years people have learned how to edit the game and that is where nhl94 draft was born.  This draft was usually done by forum in a snake draft pick format (1-2-3-4-4-3-2-1-1-2-3-4-4-3-2-1).  I had the idea to add the draft idea to a website where users could pick their players from the list of available players.   However if the moderator and their friends could get together to make 48 picks in a 4 person league, 96 picks in an 8 person league, etc in person that would probably be the most fun.</p>
     <img src="https://s.yimg.com/ny/api/res/1.2/xw_IOuIRxB9TIferCwg_jA--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9NjMwO2g9NDE2O2lsPXBsYW5l/http://media.zenfs.com/en/blogs/sptusnhlexperts/faFSAsaffssa.jpg", alt="Chicago 8 goals, Anaheim 0">
 <% end %>

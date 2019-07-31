@@ -18,7 +18,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid? 
       @user.save 
-      redirect_to user_path(@user.id)
+      session[:user_id] = @user.id 
+      redirect_to user_path(@user)
     else
       flash[:message] = @user.errors.full_messages[0]
       redirect_to new_user_path
@@ -31,6 +32,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @season = Season.last
   end
 
   def index
@@ -44,6 +46,8 @@ class UsersController < ApplicationController
       player.picks.count < 1  
     end
   end
+
+  
 
   private 
   def user_params

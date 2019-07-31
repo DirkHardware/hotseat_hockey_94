@@ -1,20 +1,22 @@
-<%if @season.picks.length == 48%>
-<%= "The draft has concluded.  Click a team name to view a roster or login to your username to view your team."%>
+<%if @season.picks.length >= 0 && @season.picks.length != 48%>
+<h2><%="#{@season.draft.username} is on the clock.  Tell the moderator which player you want to draft."%></h2>
 <%else%>
-<h2><%="#{@season.draft.username} is on the clock."%></h2>
+<h2><%= "The draft has concluded.  Click a team name to view a roster or login to your username to view your team."%></h2>
+  <%if flash[:message]%>
+    <%=flash[:message]%>
+  <%end%>
 <%end%>
-<h4><%="The moderator will record your picks.  You must select 6 F, 4 D, and 2 G." %></h4>
 <br/>
 <br/>
-<table>                         
+<div class="pick_table"><table align="center">                                                  
   <tr>                          
     <th>Team Name</th>
-    <th>Forward Count</th>
-    <th>Defensemen Count</th>
-    <th>Goalie Count</th>
+    <th>Forwards (6 Max)</th>
+    <th>Defensemen (4 Max)</th>
+    <th>Goalies (2 Max)</th>
   </tr>
 
-<%@season.users[0..3].each do |user|%>     
+<%@season.users[1..4].each do |user|%>     
   <tr>
     <td><%= link_to user.username, user_path(user.id) %></td>  
     <td><%= user.forwards%></td> 
@@ -22,28 +24,34 @@
     <td><%= user.goalies%></td>
   </tr>
 <% end %>                        
-</table>         
+</table></div><br/>         
 
-<table>                         
+<%@player_hash = @players.group_by do |player|%>
+  <%player.position%>
+<%end%>
+<%@player_hash.keys.each do |key| %>
+<div class="position_table">
+<table>                                             
     <tr>                          
       <th>Name</th>
       <th>Rating</th>
       <th>Position</th>
       <th>Add Player</th>
     </tr>
-<%@players.each do |player|%>     
+<%@player_hash[key].each do |player|%>     
     <tr>
       <td><%= player.name %></td>  
       <td><%= player.rating %></td> 
       <td><%= player.position %></td>  
       <%= form_tag('/picks') do %>
       <%= hidden_field(:pick, :player_id, value: player.id)%>
-      <td><%=collection_select(:pick, :user_id, @users, :id, :username)%></td>
-      <td><%= submit_tag 'Save' %></td>
+      <%= hidden_field(:pick, :user_id, value: @season.draft.id)%>
+      <td><%= submit_tag 'Add' %></td>
       <% end %>
     </tr>
   <% end %>                        
-  </table>         
-
+  </table>    
+  </div>     
+  <%end%>
   
 

@@ -7,16 +7,16 @@
   <title>Team Page</title>
 </head>
 <body>
-  <%= "Coach #{@user.username}"%><br/>
+  <%= link_to "List of Available Players", players_path%><br/>
+  <%if @user.id == @season.draft.id%>
+  <%= link_to "Make Your Pick Here", users_path%><br/> 
+  <%end%>
+  <h2 align="center"><%= "#{@user.team.hometown} #{@user.team.name} Coach #{@user.username}"%></h2><br/>
   
-  <%= "#{@user.team.hometown} #{@user.team.name}"%><br/>
+<div class="logo_roster">
+  <div><img src="<%="#{@user.logo}"%>" alt="Team Logo" align="middle"></div>
 
-
-<br/>
-<%= link_to "List of Available Players", players_path%>
-<br/>
-
-<table>                         
+<div><table>                         
     <tr>                          
       <th>Name</th>
       <th>Rating</th>
@@ -29,7 +29,8 @@
       <td><%= player.position %></td>  
     </tr>
   <% end %>                        
-  </table>         
-
+  </table></div>
+</div>    
 </body>
 </html>
+
