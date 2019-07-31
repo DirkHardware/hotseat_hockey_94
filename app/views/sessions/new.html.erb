@@ -1,10 +1,12 @@
-<h1>Login</h1>
+<%= "Log in"%><br/>
+<%if flash[:message]%>
+    <%=flash[:message]%>
+<%end%>
 
-<%= form_for :user, url: '/login' do |f| %>
-  Username: <%= f.text_field :username %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+<%= form_for :session, url: "/login" do |f| %>
+<%= f.label :username%><br/>
+<%= f.text_field :username%><br/>
+<%= f.label :password%><br/>
+<%= f.password_field :password%><br/>
+<%= f.submit "Create" %>
 <% end %>
-
-<%= link_to 'Sign Up', '/signup' %>

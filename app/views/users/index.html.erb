@@ -1,7 +1,51 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-<<<<<<< HEAD
-
 <%=link_to('Logout', destroy_user_session_path, method: :delete) %>
-=======
->>>>>>> testmaster
+
+<%if @season.picks.length == 48%>
+<%= "The draft has concluded.  Click a team name to view a roster or login to your username to view your team."%>
+<%else%>
+<h2><%="#{@season.draft.username} is on the clock."%></h2>
+<%end%>
+<h4><%="The moderator will record your picks.  You must select 6 F, 4 D, and 2 G." %></h4>
+<br/>
+<br/>
+<table>                         
+  <tr>                          
+    <th>Team Name</th>
+    <th>Forward Count</th>
+    <th>Defensemen Count</th>
+    <th>Goalie Count</th>
+  </tr>
+
+<%@season.users.each do |user|%>     
+  <tr>
+    <td><%= link_to user.username, user_path(user.id) %></td>  
+    <td><%= user.forwards%></td> 
+    <td><%= user.defensemen%></td>  
+    <td><%= user.goalies%></td>
+  </tr>
+<% end %>                        
+</table>         
+
+<table>                         
+    <tr>                          
+      <th>Name</th>
+      <th>Rating</th>
+      <th>Position</th>
+      <th>Add Player</th>
+    </tr>
+<%@players.each do |player|%>     
+    <tr>
+      <td><%= player.name %></td>  
+      <td><%= player.rating %></td> 
+      <td><%= player.position %></td>  
+      <%= form_tag('/picks') do %>
+      <%= hidden_field(:pick, :player_id, value: player.id)%>
+      <td><%=collection_select(:pick, :user_id, @users, :id, :username)%></td>
+      <td><%= submit_tag 'Save' %></td>
+      <% end %>
+    </tr>
+  <% end %>                        
+  </table>         
+
+  
+

@@ -1,8 +1,18 @@
 require 'test_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
+<<<<<<< HEAD
   test "should get create" do
     get sessions_create_url
+=======
+  test "should get new" do
+    get sessions_new_url
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get sessions_edit_url
+>>>>>>> nick-stano
     assert_response :success
   end
 
@@ -11,4 +21,17 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+<<<<<<< HEAD
+=======
+  test "should get index" do
+    get sessions_index_url
+    assert_response :success
+  end
+
+  test "should get show" do
+    get sessions_show_url
+    assert_response :success
+  end
+
+>>>>>>> nick-stano
 end
