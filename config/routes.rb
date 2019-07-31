@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   # get 'sessions/create'
   # get 'sessions/destroy'
   # get 'seasons/index'
@@ -24,5 +25,21 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#batch_create' 
   # post '/signup', to: 'users#create'
   
+=======
+
+  get "/players", to: "players#index", as: "players"
+  get "/players/:id", to: "players#show", as: "player"
+
+  get "/users", to: "users#index", as: "users"
+  get "/users/new", to: "users#new", as: "new_user"
+  get "/users/:id", to: "users#show", as: "user"
+
+  get "/picks/new", to: "picks#new", as: "new_pick"
+
+  post "/users", to: "users#create"
+  post "/picks", to: "picks#create"
+  
+
+>>>>>>> testmaster
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

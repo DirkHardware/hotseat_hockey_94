@@ -10,12 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_07_28_195117) do
+=======
+ActiveRecord::Schema.define(version: 2019_07_29_201047) do
+
+  create_table "picks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+    t.integer "rating"
+    t.string "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+>>>>>>> testmaster
 
   create_table "seasons", force: :cascade do |t|
     t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
   end
 
   create_table "users", force: :cascade do |t|
@@ -23,6 +43,28 @@ ActiveRecord::Schema.define(version: 2019_07_28_195117) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+    t.integer "first_player"
+    t.integer "second_player"
+    t.integer "third_player"
+    t.integer "fourth_player"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "hometown"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.integer "season_id"
+    t.integer "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "password_digest"
+>>>>>>> testmaster
   end
 
 end

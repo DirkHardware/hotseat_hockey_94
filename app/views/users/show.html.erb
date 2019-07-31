@@ -1,4 +1,23 @@
+<<<<<<< HEAD
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
 <%=link_to('Logout', destroy_user_session_path, method: :delete) %>
+=======
+<%= "#{@user.username}'s team"%>
+
+<table>                         
+    <tr>                          
+      <th>Name</th>
+      <th>Rating</th>
+      <th>Position</th>
+    </tr>
+<%@user.players.each do |player|%>     
+    <tr>
+      <td><%= player.name %></td>  
+      <td><%= player.rating %></td> 
+      <td><%= player.position %></td>  
+    </tr>
+  <% end %>                        
+  </table>         
+>>>>>>> testmaster

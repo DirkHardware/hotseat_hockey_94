@@ -1,39 +1,32 @@
 class UsersController < ApplicationController
+
+  def new
+    @users = User.all
+    @teams = Team.all
+    @seasons = Season.all
+    @user = User.new
+  end
+
+  def create 
+    @teams = Team.all
+    @seasons = Season.all
+    @user = User.create!(user_params)
+    redirect_to new_user_path
+  end
+
+  def edit
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
   def index
   end
 
-  def new
-    if User.all.count >3
-      redirect_to '/login'
-    end 
-  end
-
-  def create
-    @user = User.create(user_params)
-    redirect_to '/welcome'
-  end
-
-  def batch_create
-    @user = User.create(user_params)
-    if User.all.count > 3
-      redirect_to '/login'
-    else 
-      redirect_to '/signup'
-    end 
-  end 
-
-  def show
-  end
-
-  def destroy
-  end
-
-  def require_login
-    redirect_to '/login' unless session.include? :user_id
-  end 
-
+  private 
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation)
+    params.require(:user).permit(:username, :password, :team_id, :season_id)
   end
 
 end

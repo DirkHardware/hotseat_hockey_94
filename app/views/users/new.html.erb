@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
 
@@ -6,4 +7,15 @@
   Password: <%= f.password_field :password %>
   Password Confirmation: <%= f.password_field :password_confirmation %>
   <%= f.submit "Submit" %>
+=======
+
+<%= form_for @user do |f| %>
+<%= f.label :username%>
+<%= f.text_field :username%>
+<%= f.label :password%>
+<%= f.password_field :password%>
+<%= f.collection_select(:team_id, @teams, :id, :name, prompt: "Select Team")%>
+<%= f.collection_select(:season_id, @seasons, :id, :number, prompt: "Select Season")%>
+<%= f.submit "Create" %>
+>>>>>>> testmaster
 <% end %>

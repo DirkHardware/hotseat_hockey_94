@@ -1,0 +1,44 @@
+
+<h2><%="#{@seasons.draft} is on the clock."%></h2>
+
+<table>                         
+  <tr>                          
+    <th>Team Name</th>
+    <th>Forward Count</th>
+    <th>Defensemen Count</th>
+    <th>Goalie Count</th>
+  </tr>
+<%@users.each do |user|%>     
+  <tr>
+    <td><%= user.username %></td>  
+    <td><%= user.forwards%></td> 
+    <td><%= user.defensemen%></td>  
+    <td><%= user.goalies%></td>
+  </tr>
+<% end %>                        
+</table>         
+
+
+<table>                         
+    <tr>                          
+      <th>Name</th>
+      <th>Rating</th>
+      <th>Position</th>
+      <th>Add Player</th>
+    </tr>
+<%@players.each do |player|%>     
+    <tr>
+      <td><%= player.name %></td>  
+      <td><%= player.rating %></td> 
+      <td><%= player.position %></td>  
+      <%= form_tag('/picks') do %>
+      <%= hidden_field(:player, :player_id, value: player.id)%>
+      <td><%=collection_select(:pick, :user_id, @users, :id, :username)%></td>
+      <td><%= submit_tag 'Save' %></td>
+      <% end %>
+    </tr>
+  <% end %>                        
+  </table>         
+
+  
+
