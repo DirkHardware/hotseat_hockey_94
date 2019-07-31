@@ -1,18 +1,8 @@
 require 'test_helper'
 
 class SeasonsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get seasons_index_url
-    assert_response :success
-  end
-
   test "should get new" do
     get seasons_new_url
-    assert_response :success
-  end
-
-  test "should get create" do
-    get seasons_create_url
     assert_response :success
   end
 
@@ -21,8 +11,8 @@ class SeasonsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get destroy" do
-    get seasons_destroy_url
+  test "should get index" do
+    get seasons_index_url
     assert_response :success
   end
 

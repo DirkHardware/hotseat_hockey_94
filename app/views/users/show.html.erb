@@ -1,10 +1,20 @@
-<%= "#{@user.username}'s team"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Team Page</title>
+</head>
+<body>
+  <%= "Coach #{@user.username}"%><br/>
+  
+  <%= "#{@user.team.hometown} #{@user.team.name}"%><br/>
 
 
 <br/>
-<%= link_to "List of All Players", players_path%>
+<%= link_to "List of Available Players", players_path%>
 <br/>
-
 
 <table>                         
     <tr>                          
@@ -20,3 +30,9 @@
     </tr>
   <% end %>                        
   </table>         
+<<<<<<< HEAD
+=======
+
+</body>
+</html>
+>>>>>>> nick-stano

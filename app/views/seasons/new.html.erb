@@ -1,2 +1,8 @@
-<h1>Seasons#new</h1>
-<p>Find me in app/views/seasons/new.html.erb</p>
+
+
+<%= form_tag "/seasons" do |f| %>
+<%= f.label :number%>
+<%= f.number_field :number%>
+
+<%= f.submit "Create" %>
+<% end %>

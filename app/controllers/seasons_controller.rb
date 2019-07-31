@@ -1,19 +1,24 @@
 class SeasonsController < ApplicationController
-  def index
-  end
-
   def new
+    @season = Season.new
   end
 
-  def create
+  def create 
+    @season = Season.create(season_params)
+    redirect_to seasons_path
   end
 
   def show
+    @season = Season.find(params[:id])
   end
 
-  def destroy
+  def index
+    @seasons = Season.all  
+    @season = Season.last
   end
 
-  
-
+  private 
+  def season_params 
+    params.require(:season).permit(:number)
+  end
 end

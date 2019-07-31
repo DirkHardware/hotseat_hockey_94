@@ -14,7 +14,7 @@
     <th>Goalie Count</th>
   </tr>
 
-<%@season.users.each do |user|%>     
+<%@season.users[0..3].each do |user|%>     
   <tr>
     <td><%= link_to user.username, user_path(user.id) %></td>  
     <td><%= user.forwards%></td> 
