@@ -1,6 +1,4 @@
 class Season < ApplicationRecord
-<<<<<<< HEAD
-=======
     has_many :users
     has_many :teams, through: :users
     has_many :picks, through: :users 
@@ -33,5 +31,4 @@ class Season < ApplicationRecord
         end
     end
 
->>>>>>> testmaster
 end

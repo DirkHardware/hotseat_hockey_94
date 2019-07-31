@@ -1,7 +1,5 @@
 class User < ApplicationRecord
     has_secure_password
-<<<<<<< HEAD
-=======
     has_many :picks 
     has_many :players, through: :picks
     belongs_to :team 
@@ -27,5 +25,4 @@ class User < ApplicationRecord
             player.position == "G"
         end.count
     end
->>>>>>> testmaster
 end

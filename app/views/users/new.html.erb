@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
-
-<%= form_for :user, url: '/signup' do |f| %>
-  Username: <%= f.text_field :username %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
-=======
 
 <%if @lastseason.users.length < 4%>
 <h2><%= "Four Users must sign up to start the draft."%></h2>
@@ -28,5 +18,4 @@
 <%= f.collection_select(:team_id, @teams, :id, :name, prompt: "Select Team")%>
 <%= f.collection_select(:season_id, @seasons, :id, :number, prompt: "Select Season")%>
 <%= f.submit "Create" %>
->>>>>>> testmaster
 <% end %>
