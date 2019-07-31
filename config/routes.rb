@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get "/seasons", to: "seasons#index", as: "season"
+
+  post "/seasons", to: "seasons#create"
+
   get "/login", to: "sessions#new", as: "login"
   post "/login", to: "sessions#create"
 

@@ -39,9 +39,9 @@ class UsersController < ApplicationController
     end
     @users = User.all
     @picks = Pick.all
-    @season = Season.last 
+    @season = Season.last
     @players = Player.all.select do |player|
-      player.picks.count < 1
+      player.picks.count < 1  
     end
   end
 

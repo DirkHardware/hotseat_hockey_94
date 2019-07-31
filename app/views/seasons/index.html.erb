@@ -1,0 +1,13 @@
+<br/>
+<br/>
+<br/>
+<h1><%= "The current season is number #{@season.number}."%></h1>
+
+<h4><%= "Coaches Roster Page for Season"%></h4>
+
+<%@season.users.each do |user|%>
+    <ol><%=link_to user.username, user_path(user.id)%></ol>
+<%end%>
+
+<%@seasons.each do |season|%>
+<%end%>

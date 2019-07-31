@@ -4,7 +4,7 @@ class User < ApplicationRecord
     has_many :players, through: :picks
     belongs_to :team 
     belongs_to :season 
-    validates :team_id, uniqueness: true 
+    # validates :team_id, uniqueness: true 
     validates :username, uniqueness: true 
     validates :username, presence: true 
 

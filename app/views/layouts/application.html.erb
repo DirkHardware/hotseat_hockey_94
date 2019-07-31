@@ -13,9 +13,9 @@
     <div class="nav-bar">
       <%if current_user%>
       <%= "#{current_user.username} is logged in."%>
-      <%= link_to "logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete%>
+      <p><%= link_to "logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete%></p>
       <%else%>
-      <%= link_to "Login Page", login_path%>
+      <%= link_to "Login Required", login_path%>
       <%end%>
     </div>
     <%= yield %>
