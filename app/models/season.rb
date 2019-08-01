@@ -10,11 +10,11 @@ class Season < ApplicationRecord
     def schedule
         @users = User.all.reject{|user| user.username == "admin" || user.season != Season.last}
         @users.each do |home|
-          opponents_array = @users.select{|user| user.username != home.username}
+          opponents_array = @users - [home]
           opponents_array.each do |opponent|
-            # t1 = Time.parse("2019-10-03")
-            # t2 = Time.parse("2020-04-04")
-            Game.create(home: home, away: opponent, date: "date", season: Season.last)
+            t1 = Time.parse("2019-10-03")
+            t2 = Time.parse("2020-04-04")
+            Game.create(home: home, away: opponent, date: rand(t1..t2).to_s, season: Season.last)
           end
         end
     end
