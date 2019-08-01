@@ -1,5 +1,7 @@
 {
   "name": "hotseat_hockey_94",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "nes.css": "^2.2.0"
+  }
 }
