@@ -11,16 +11,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-
-
-
   <body>
     <div class="nav-bar">
         <%if current_user%>
+        <%= link_to 'Schedule', seasons_path, class: "nes-btn"%>
         <%= link_to 'Draft Page', players_path, class: "nes-btn is-primary"%>
         <%= link_to 'Make Selection', users_path(current_user.id), class: "nes-btn is-success"%>
         <%= link_to 'Team Roster', user_path(current_user.id), class: "nes-btn is-warning"%>
         <%= link_to 'Logout', {:controller=> "sessions", :action=> "destroy"}, :method => :delete, class: "nes-btn is-error"%>
+
         <%= submit_tag "#{current_user.username} is logged in.", class: "nes-btn is-disabled"%>
 
         <%else%>

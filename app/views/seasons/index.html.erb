@@ -1,13 +1,19 @@
-<br/>
-<br/>
-<br/>
 <h1><%= "The current season is number #{@season.number}."%></h1>
+<h2><%= "Standings"%></h2>
 
-<h4><%= "Coaches Roster Page for Season"%></h4>
+<div id="schedule"><table align="center">                         
+        <tr>                          
+          <th>Date</th>
+          <th>Home Team</th>
+          <th>Away Team</th>
+        </tr>
+    <%@season.games.sort_by{|game| game.date}.each do |game|%>     
+        <tr>
+            <td><%= game.date[0..10] %></td>
+            <td><%= link_to "#{game.home.team.hometown} #{game.home.team.name}", user_path(game.home.id) %></td>  
+            <td><%= link_to "#{game.away.team.hometown} #{game.away.team.name}", user_path(game.away.id) %></td> 
+        </tr>
+      <% end %>                        
+      </table></div>
+    </div>    
 
-<%@season.users.each do |user|%>
-    <ol><%=link_to user.username, user_path(user.id)%></ol>
-<%end%>
-
-<%@seasons.each do |season|%>
-<%end%>

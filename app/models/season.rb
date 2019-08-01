@@ -14,7 +14,8 @@ class Season < ApplicationRecord
           opponents_array.each do |opponent|
             t1 = Time.parse("2019-10-03")
             t2 = Time.parse("2020-04-04")
-            Game.create(home: home, away: opponent, date: rand(t1..t2).to_s, season: Season.last)
+            s = rand(t1..t2).to_s
+            Game.create(home: home, away: opponent, date: s, season: Season.last)
           end
         end
     end
