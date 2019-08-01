@@ -1,5 +1,5 @@
 <%if @season.picks.length >= 0 && @season.picks.length != 48%>
-<h2><%="#{@season.draft.username} is on the clock.  Tell the moderator which player you want to draft."%></h2>
+<h2><%="#{@season.draft.username} is on the clock."%></h2>
 <%else%>
 <h2><%= "The draft has concluded.  Click a team name to view a roster or login to your username to view your team."%></h2>
   <%if flash[:message]%>
@@ -30,13 +30,13 @@
   <%player.position%>
 <%end%>
 <%@player_hash.keys.each do |key| %>
-<div class="position_table">
-<table>                                             
+<div id="user_table">
+<table> 
     <tr>                          
       <th>Name</th>
       <th>Rating</th>
       <th>Position</th>
-      <th>Add Player</th>
+      <th>Add</th>
     </tr>
 <%@player_hash[key].each do |player|%>     
     <tr>
@@ -46,7 +46,7 @@
       <%= form_tag('/picks') do %>
       <%= hidden_field(:pick, :player_id, value: player.id)%>
       <%= hidden_field(:pick, :user_id, value: @season.draft.id)%>
-      <td><%= submit_tag 'Add' %></td>
+      <td><%= submit_tag 'Add', class: "nes-btn"%></td>
       <% end %>
     </tr>
   <% end %>                        

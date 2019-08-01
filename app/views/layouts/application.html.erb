@@ -5,17 +5,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
+
+
   <body>
     <div class="nav-bar">
         <%if current_user%>
-        <h2><%= "#{current_user.username} is logged in."%></h2>
-        <h2><%= link_to "Draft Page", players_path%></h2>
-        <h2><%= link_to "Make a selection", users_path(current_user.id)%></h2>
-        <h2><%= link_to "logout", {:controller=> "sessions", :action=> "destroy"}, :method => :delete%></h2>
+        <%= link_to 'Draft Page', players_path, class: "nes-btn is-primary"%>
+        <%= link_to 'Make Selection', users_path(current_user.id), class: "nes-btn is-success"%>
+        <%= link_to 'Team Roster', user_path(current_user.id), class: "nes-btn is-warning"%>
+        <%= link_to 'Logout', {:controller=> "sessions", :action=> "destroy"}, :method => :delete, class: "nes-btn is-error"%>
+        <%= submit_tag "#{current_user.username} is logged in.", class: "nes-btn is-disabled"%>
+
         <%else%>
         <h2><%= link_to "Login Required", login_path%></h2>
         <%end%>

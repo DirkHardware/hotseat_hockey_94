@@ -14,13 +14,13 @@
  *= require_self
  */
 
-
+ @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
  .nav-bar { 
     border: groove;
     background-image: linear-gradient(lightblue, rgb(191, 191, 221));
     color: red;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive;
     display: flex;
     justify-content: space-evenly;
     align-content: space-between;
@@ -28,7 +28,7 @@
 
  :any-link {
      color: blue;
-     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+     font-family: 'Press Start 2P', cursive;
  }
 
  :any-link:hover { 
@@ -36,36 +36,38 @@
  }
 
 tr {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: 0.5px solid black;
   }
 
 h4 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }
 
 h2 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }
 
 p {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }
 
 form {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }
 
-.position_table {
+#position_table {
+    font-size: 13px;
     display: inline-block;
     vertical-align: top;
     margin: auto;
 }
 
-.user_table {
+#user_table {
+    font-size: 10px;
     display: inline-block;
     vertical-align: top;
     margin: auto;
