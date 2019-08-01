@@ -12,8 +12,17 @@ class PicksController < ApplicationController
     @players = Player.all.select do |player|
       player.picks.count < 1
     end
-    @pick = Pick.create(pick_params)
-    redirect_to users_path
+    @pick = Pick.new(pick_params)
+    if @pick.player.position == "F" && @pick.user.too_many_forwards?
+      # redirect_to "/players"
+    elsif @pick.player.position == "D" && @pick.user.too_many_defensemen?
+      # redirect_to "/players"
+    elsif @pick.player.position == "G" && @pick.user.too_many_goalies?
+      # redirect_to "/players"
+    else
+      @pick.save
+    end
+    redirect_to "/users"
   end
 
   def show

@@ -25,4 +25,32 @@ class User < ApplicationRecord
             player.position == "G"
         end.count
     end
+
+    def too_many_forwards?
+        # num = self.picks.select {|pick| pick.player.position == "F"}.count 
+        if self.forwards >= 6 
+            true 
+        else
+            false 
+        end
+    end
+
+    def too_many_defensemen?
+        # num = self.picks.select {|pick| pick.player.position == "D"}.count 
+        if self.defensemen >= 4 
+            true 
+        else
+            false 
+        end
+    end
+
+    def too_many_goalies?
+        # num = self.picks.select {|pick| pick.player.position == "G"}.count 
+        if self.goalies >= 2 
+            true 
+        else
+            false 
+        end
+    end
+
 end

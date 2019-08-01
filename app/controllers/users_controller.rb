@@ -34,14 +34,25 @@ class UsersController < ApplicationController
   end
 
   def index
-    if current_user.username != "admin" 
-      redirect_to user_path(current_user)
-    end
-    @users = User.all
-    @picks = Pick.all
+    # @season = Season.last
+    # if current_user.username != "admin" 
+    #   redirect_to user_path(current_user)
+    # end
+
+    # @season = Season.last
+    # if current_user.id != @season.draft.id || current_user.username != "admin"
+    #   redirect_to user_path(current_user)
+    # end
     @season = Season.last
-    @players = Player.all.select do |player|
-      player.picks.count < 1  
+    if current_user.id == @season.draft.id || current_user.username == "admin"
+      @users = User.all
+      @picks = Pick.all
+      # @season = Season.last
+      @players = Player.all.select do |player|
+        player.picks.count < 1  
+      end 
+    else
+      redirect_to user_path(current_user)  
     end
   end
 
