@@ -14,24 +14,30 @@
  *= require_self
  */
 
+
+
  .nav-bar { 
     border: groove;
-    background-image: linear-gradient(lightblue, rgb(32, 32, 175));
+    background-image: linear-gradient(lightblue, rgb(191, 191, 221));
     color: red;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-between;
  }
 
  :any-link {
+     color: blue;
      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ }
+
+ :any-link:hover { 
+     color: red;
  }
 
 tr {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
-/* .pick_table {
-    border-style: solid;
-    border-width: 10px 1px;
-} */
 
 table, th, td {
     border: 1px solid black;
@@ -70,3 +76,4 @@ form {
     justify-content: space-evenly;
     align-content: space-between;
 }
+

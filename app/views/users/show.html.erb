@@ -9,7 +9,7 @@
 <body>
   <%= link_to "List of Available Players", players_path%><br/>
   <%if @user.id == @season.draft.id%>
-  <%= link_to "Make Your Pick Here", users_path%><br/> 
+  <%= link_to "Make Your Pick Here", users_path(@user.id)%><br/> 
   <%end%>
   <h2 align="center"><%= "#{@user.team.hometown} #{@user.team.name} Coach #{@user.username}"%></h2><br/>
   
