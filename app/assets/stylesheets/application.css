@@ -91,7 +91,25 @@ form {
     text-align: center;
 }
 
+#standings {
+    text-align: center;
+    width: 1260px;
+    margin-left: 0.24em;
+}
+
 #schedule {
+    text-align: center;
+    width: 1250px;
+    margin-left: 0.24em;
+}
+
+
+#stansche {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-between;
+    flex-direction: column;
+    height: 750px;
     text-align: center;
 }
 

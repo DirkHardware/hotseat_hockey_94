@@ -1,4 +1,19 @@
-<div align="center"><h2><%= "Schedule and Standings of Season #{@season.number}"%></h2></div>
+<div id="stansche" align="center"><h2><%= "Schedule and Standings of Season #{@season.number}"%></h2>
+
+<div id="standings"><table align="center">                         
+    <tr>                          
+      <th><%= "Team"%></th>
+      <th><%= "Wins"%></th>
+      <th><%= "Losses"%> 
+    </tr>
+<%@season.users[1..4].each do |user|%>     
+    <tr>
+        <td><%= link_to "#{user.team.hometown} #{user.team.name}", user_path(user.id) %></td>
+        <td><%= user.games_won(user.username) %></td>   
+        <td><%= user.games_lost(user.username) %></td>
+    </tr>
+  <% end %>                        
+  </table></div>  
 
 <div id="schedule"><table align="center">                         
         <tr>                          
@@ -20,30 +35,11 @@
               <% losing_team = losing_user.team.name%>
               <td><%= winning_team %> </td>
               <td><%= losing_team %> </td>
-
             <% end %>
-        
-         
-          
         </tr>
       <% end %>                        
       </table></div>
-
-      <div id="standings"><table align="center">                         
-        <tr>                          
-          <th><%= link_to "Team", :sort => "teams" %></th>
-          <th><%= link_to "Wins", :sort => "winners"%></th>
-          <th><%= link_to "Losses", :sort => "losers"%> 
-        </tr>
-    <%@season.users[1..4].each do |user|%>     
-        <tr>
-            <td><%= link_to "#{user.team.hometown} #{user.team.name}", user_path(user.team.id) %></td>
-            <td><%= user.games_won(user.username) %></td>   
-            <td><%= user.games_lost(user.username) %></td>
-        </tr>
-      <% end %>                        
-      </table></div>
-
-    </div>    
+    </div>
+      
 
     

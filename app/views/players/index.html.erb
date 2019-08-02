@@ -1,7 +1,11 @@
 <%if @season.picks.length == 48%>
 <%= "The draft has concluded.  Click a team name to view a roster or login to your username to view your team."%>
 <%else%>
-<h2><%="#{@season.draft.username} is on the clock."%></h2>
+  <%if @season.draft.username == current_user.username%>
+  <h2><%="You are on the clock."%></h2>
+  <%else%>
+  <h2><%="#{@season.draft.username} is on the clock."%></h2>
+  <%end%>
 <%end%>
 <br/>
 <br/>
