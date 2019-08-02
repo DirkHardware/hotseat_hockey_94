@@ -8,7 +8,7 @@
       <th><%= "Wins"%></th>
       <th><%= "Losses"%> 
     </tr>
-<%@season.users[1..4].each do |user|%>     
+<%@sorted_users.each do |user|%>     
     <tr>
         <td><%= link_to "#{user.team.hometown} #{user.team.name}", user_path(user.id) %></td>
         <td><%= user.games_won(user.username) %></td>   

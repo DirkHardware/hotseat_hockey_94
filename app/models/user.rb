@@ -9,6 +9,10 @@ class User < ApplicationRecord
     validates :username, uniqueness: true 
     validates :username, presence: true 
 
+    def games_won_in_season(season)
+        Game.all.select {|game| game.season == season && self == game.winner}
+    end
+
     def games_won(username = self.username)
         user = User.find_by username: username 
         gw = Game.all.select { |game| game.winner == user.username}

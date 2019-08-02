@@ -10,11 +10,13 @@ class SeasonsController < ApplicationController
 
   def show
     @season = Season.find(params[:id])
+
   end
 
   def index
     @season = Season.last
-    @users = @season.users.order(params[:sort])
+    @users = User.all[1..4]   
+    @sorted_users = @users.sort_by{|user| [-user.games_won(user.username), user.games_lost(user.username)]} 
   end
 
   private 
