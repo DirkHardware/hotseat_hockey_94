@@ -37,9 +37,15 @@
 
 tr {
     font-family: 'Press Start 2P', cursive;
+ 
 }
 
-table, th, td {
+th, td {
+    border: 0.5px solid black;
+    margin-top: 1px;
+}
+
+table {
     border: 0.5px solid black;
   }
 
@@ -49,6 +55,7 @@ h4 {
 
 h2 {
     font-family: 'Press Start 2P', cursive;
+    margin-left: 0.24em;
 }
 
 p {
@@ -64,6 +71,8 @@ form {
     display: inline-block;
     vertical-align: top;
     margin: auto;
+    margin-left: 0.24em;
+    text-align: center;
 }
 
 #user_table {
@@ -71,12 +80,19 @@ form {
     display: inline-block;
     vertical-align: top;
     margin: auto;
+    margin-left: 0.24em;
+    text-align: center;
 }
 
 .logo_roster {
     display: flex;
     justify-content: space-evenly;
     align-content: space-between;
+    text-align: center;
+}
+
+#schedule {
+    text-align: center;
 }
 
 
