@@ -1,0 +1,11 @@
+<h1><%= @game.home.username %> vs. <%= @game.away.username %></h1>
+<h2><% if @game.winner && @game.loser %></h2>
+    <h2>Winner: <%= @game.winner %></h2>
+    <h2>Loser: <%= @game.loser %></h2>
+    <% else %>
+    <%= "The game has not been played yet!" %>
+    <%= link_to "Play Game", "/games/#{@game.id}/update" %>
+    <% end %>
+
+    
+

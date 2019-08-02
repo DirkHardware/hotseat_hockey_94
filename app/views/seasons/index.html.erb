@@ -9,7 +9,7 @@
         </tr>
     <%@season.games.sort_by{|game| game.date}.each do |game|%>     
         <tr>
-            <td><%= game.date[0..10] %></td>
+            <td><%= link_to game.date[0..10], game_path(game.id) %></td>
             <td><%= link_to "#{game.home.team.hometown} #{game.home.team.name}", user_path(game.home.id) %></td>  
             <td><%= link_to "#{game.away.team.hometown} #{game.away.team.name}", user_path(game.away.id) %></td> 
         </tr>

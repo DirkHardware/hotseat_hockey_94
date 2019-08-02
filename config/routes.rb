@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'games/index', to: 'games#index', as: 'games'
+  get 'games/:id/', to: 'games#show', as: 'game'
+  get 'games/:id/update', to: 'games#update'
+  patch '/games/:id/update', to: 'games#update', as: 'game_update'
+
   get "/seasons", to: "seasons#index", as: "season"
 
   post "/seasons", to: "seasons#create"
@@ -9,6 +14,7 @@ Rails.application.routes.draw do
 
   get "/players", to: "players#index", as: "players"
   get "/players/:id", to: "players#show", as: "player"
+  
 
   get "/users", to: "users#index", as: "users"
   get "/users/new", to: "users#new", as: "new_user"
