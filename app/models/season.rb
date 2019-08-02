@@ -20,6 +20,11 @@ class Season < ApplicationRecord
         end
     end
 
+    def schedule_create
+        if self.games.length == 0 
+          self.schedule 
+        end
+    end
 
     def draft(first_player_picks = [0, 7, 8, 15, 16, 23, 24, 31, 32, 39, 40, 47], second_player_picks = [1, 6, 9, 14, 17, 22, 25, 30, 33, 38, 41, 46], third_player_picks = [2, 5, 10, 13, 18, 21, 26, 29, 34, 37, 42, 45], fourth_player_picks = [3, 4, 11, 12, 19, 20, 27, 28, 35, 36, 43, 44], last_pick = [48])
 

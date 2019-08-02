@@ -1,5 +1,7 @@
 <div id="stansche" align="center"><h2><%= "Schedule and Standings of Season #{@season.number}"%></h2>
-
+  <%if @season.picks.length == 48%> 
+    <%@season.schedule_create%>
+  <%end%>
 <div id="standings"><table align="center">                         
     <tr>                          
       <th><%= "Team"%></th>
