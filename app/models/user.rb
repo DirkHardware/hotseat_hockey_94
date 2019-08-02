@@ -9,6 +9,18 @@ class User < ApplicationRecord
     validates :username, uniqueness: true 
     validates :username, presence: true 
 
+    def games_won(username = self.username)
+        user = User.find_by username: username 
+        gw = Game.all.select { |game| game.winner == user.username}
+        gw.count
+    end 
+
+    def games_lost(username = self.username)
+        user = User.find_by username: username 
+        gl = Game.all.select { |game| game.loser == user.username}
+        gl.count
+    end 
+
     def forwards
         self.players.select do |player|
             player.position == "F"

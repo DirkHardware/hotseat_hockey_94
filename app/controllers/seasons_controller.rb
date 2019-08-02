@@ -13,8 +13,8 @@ class SeasonsController < ApplicationController
   end
 
   def index
-    @seasons = Season.all  
     @season = Season.last
+    @users = @season.users.order(params[:sort])
   end
 
   private 

@@ -27,4 +27,6 @@ class GamesController < ApplicationController
     redirect_to game_path(@game.id) 
   end 
 
+
+
 end

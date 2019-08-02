@@ -1,11 +1,15 @@
 <h1><%= @game.home.username %> vs. <%= @game.away.username %></h1>
 <h2><% if @game.winner && @game.loser %></h2>
-    <h2>Winner: <%= @game.winner %></h2>
-    <h2>Loser: <%= @game.loser %></h2>
-    <% else %>
-    <%= "The game has not been played yet!" %>
-    <%= link_to "Play Game", "/games/#{@game.id}/update" %>
-    <% end %>
+   <% winning_user = User.find_by username: @game.winner %>
+   <% winning_team = winning_user.team.name%>
+   <% losing_user = User.find_by username: @game.loser %>
+   <% losing_team = losing_user.team.name%>
+   <h2>Winner: Coach <%= @game.winner %> of the <%= winning_team %> </h2>
+   <h2>Loser: Coach <%= @game.loser %> of the <%= losing_team %> </h2>
+   <% else %>
+   <%= "The game has not been played yet!" %>
+   <%= link_to "Play Game", "/games/#{@game.id}/update" %>
+   <% end %>
 
     
 

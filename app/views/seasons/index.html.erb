@@ -1,18 +1,49 @@
-<div align="center"><h2><%= "Standings of Season #{@season.number}"%></h2></div>
+<div align="center"><h2><%= "Schedule and Standings of Season #{@season.number}"%></h2></div>
 
 <div id="schedule"><table align="center">                         
         <tr>                          
           <th>Date</th>
           <th>Home Team</th>
           <th>Away Team</th>
+          <th>Winning Team</th>
+          <th>Losing Team</th>
         </tr>
-    <%@season.games.sort_by{|game| game.date}.each do |game|%>     
+    <%@season.games.sort_by{|games| games.date}.each do |game|%>     
         <tr>
             <td><%= link_to game.date[0..10], game_path(game.id) %></td>
-            <td><%= link_to "#{game.home.team.hometown} #{game.home.team.name}", user_path(game.home.id) %></td>  
+            <td><%= link_to "#{game.home.team.hometown} #{game.home.team.name}", user_path(game.home.id) %></td>   
             <td><%= link_to "#{game.away.team.hometown} #{game.away.team.name}", user_path(game.away.id) %></td> 
+            <% if game.winner %>
+              <% winning_user = User.find_by username: game.winner %>
+              <% winning_team = winning_user.team.name %>
+              <% losing_user = User.find_by username: game.loser %>
+              <% losing_team = losing_user.team.name%>
+              <td><%= winning_team %> </td>
+              <td><%= losing_team %> </td>
+
+            <% end %>
+        
+         
+          
         </tr>
       <% end %>                        
       </table></div>
+
+      <div id="standings"><table align="center">                         
+        <tr>                          
+          <th><%= link_to "Team", :sort => "teams" %></th>
+          <th><%= link_to "Wins", :sort => "winners"%></th>
+          <th><%= link_to "Losses", :sort => "losers"%> 
+        </tr>
+    <%@season.users[1..4].each do |user|%>     
+        <tr>
+            <td><%= link_to "#{user.team.hometown} #{user.team.name}", user_path(user.team.id) %></td>
+            <td><%= user.games_won(user.username) %></td>   
+            <td><%= user.games_lost(user.username) %></td>
+        </tr>
+      <% end %>                        
+      </table></div>
+
     </div>    
 
+    
