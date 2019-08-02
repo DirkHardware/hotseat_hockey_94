@@ -8,6 +8,7 @@
 <div class="pick_table"><table align="center">                                                
   <tr>                          
     <th>Team Name</th>
+    <th>Team Coach</th>
     <th>Forwards (6 Max)</th>
     <th>Defensemen (4 Max)</th>
     <th>Goalies (2 Max)</th>
@@ -15,7 +16,8 @@
 
 <%@season.users[1..4].each do |user|%>     
   <tr>
-    <td><%= link_to user.username, user_path(user.id) %></td>  
+    <td><%= link_to user.team.name, user_path(user.id) %></td>
+    <td><%= user.username %></td>    
     <td><%= user.forwards%></td> 
     <td><%= user.defensemen%></td>  
     <td><%= user.goalies%></td>
